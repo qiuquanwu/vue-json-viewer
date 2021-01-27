@@ -1,13 +1,13 @@
 <script>
-import JsonString from './types/json-string'
-import JsonUndefined from './types/json-undefined'
-import JsonNumber from './types/json-number'
-import JsonBoolean from './types/json-boolean'
-import JsonObject from './types/json-object'
-import JsonArray from './types/json-array'
-import JsonFunction from './types/json-function'
-import JsonDate from './types/json-date'
-
+import JsonString from './types/json-string.vue'
+import JsonUndefined from './types/json-undefined.vue'
+import JsonNumber from './types/json-number.vue'
+import JsonBoolean from './types/json-boolean.vue'
+import JsonObject from './types/json-object.vue'
+import JsonArray from './types/json-array.vue'
+import JsonFunction from './types/json-function.vue'
+import JsonDate from './types/json-date.vue'
+import {h} from "vue"
 export default {
   name: 'JsonBox',
   inject: ['expandDepth'],
@@ -49,7 +49,7 @@ export default {
       }
     }
   },
-  render (h) {
+  render () {
     let elements = []
     let dataType
 
@@ -78,9 +78,7 @@ export default {
           'jv-toggle': true,
           open: !!this.expand
         },
-        on: {
-          click: this.toggle
-        }
+        onClick:this.toggle
       }))
     }
 
@@ -89,9 +87,7 @@ export default {
         class: {
           'jv-key': true
         },
-        domProps: {
-          innerText: `${this.keyName}:`
-        }
+        innerText: `${this.keyName}:`
       }))
     }
 
@@ -99,19 +95,16 @@ export default {
       class: {
         'jv-push': true
       },
-      props: {
         jsonValue: this.value,
         keyName: this.keyName,
         sort: this.sort,
         depth: this.depth,
         expand: this.expand,
         previewMode: this.previewMode,
-      },
-      on: {
-        'update:expand': value => {
+        'onUpdate:expand': value => {
+          console.log(456)
           this.expand = value
         }
-      }
     }))
 
     return h('div', {
@@ -125,25 +118,20 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .jv-node {
   position: relative;
-
-  &:after {
-    content: ','
-  }
-  &:last-of-type {
-    &:after {
-      content: ''
-    }
-  }
-
-  &.toggle {
-    margin-left: 13px !important;
-  }
-
-  & .jv-node {
-    margin-left: 25px;
-  }
+}
+.jv-node:after {
+  content: ",";
+}
+.jv-node:last-of-type:after {
+  content: "";
+}
+.jv-node.toggle {
+  margin-left: 13px !important;
+}
+.jv-node .jv-node {
+  margin-left: 25px;
 }
 </style>

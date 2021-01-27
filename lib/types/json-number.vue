@@ -1,4 +1,5 @@
 <script>
+import {h} from "vue"
 export default {
   name: 'JsonNumber',
   functional: true,
@@ -8,8 +9,8 @@ export default {
       required: true
     }
   },
-  render (h, { props }) {
-    const isInteger = Number.isInteger(props.jsonValue)
+  render () {
+    const isInteger = Number.isInteger(this.jsonValue)
 
     return h('span', {
       class: {
@@ -18,9 +19,7 @@ export default {
         'jv-number-integer': isInteger,
         'jv-number-float': !isInteger,
       },
-      domProps: {
-        innerText: props.jsonValue.toString()
-      }
+      innerText: this.jsonValue.toString()
     })
   }
 }

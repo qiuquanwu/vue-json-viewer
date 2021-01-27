@@ -1,4 +1,5 @@
 <script>
+import {h} from "vue"
 export default {
   name: 'JsonDate',
   inject: ['timeformat'],
@@ -9,18 +10,16 @@ export default {
       required: true
     }
   },
-  render (h, { props, injections }) {
-    const value = props.jsonValue;
-    const timeformat = injections.timeformat;
+  render () {
+    const value = this.jsonValue;
+    const timeformat = this.timeformat;
 
     return h('span', {
       class: {
         'jv-item': true,
         'jv-string': true,
       },
-      domProps: {
-        innerText: `"${timeformat(value)}"`
-      }
+      innerText: `"${timeformat(value)}"`
     })
   }
 };

@@ -20,7 +20,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '../'),
-        filename: 'vue-json-viewer.js',
+        filename: 'vue3-json-viewer.js',
         libraryTarget: 'umd',
         library: 'JsonView',
         globalObject: 'this'

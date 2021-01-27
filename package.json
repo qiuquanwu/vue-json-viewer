@@ -1,8 +1,9 @@
 {
-  "name": "vue-json-viewer",
+  "name": "vue3-json-viewer",
   "version": "2.2.18",
-  "description": "vuejs展示json的组件",
+  "description": "vuejs展示json的组件,适配vue3",
   "main": "vue-json-viewer.js",
+  "module": "lib/index.js",
   "files": [
     "vue-json-viewer.js",
     "ssr.js",
@@ -28,8 +29,8 @@
   ],
   "homepage": "https://github.com/chenfengjw163/vue-json-viewer#readme",
   "author": {
-    "name": "陈峰",
-    "email": "chenfengjw@hotmail.com"
+    "name": "邱权武",
+    "email": "9194032@qq.com"
   },
   "license": "MIT",
   "bugs": {
@@ -43,11 +44,15 @@
     {
       "name": "Sacha Stafyniak",
       "email": "sacha.stafyniak@gmail.com"
+    },
+    {
+      "name": "邱权武",
+      "email": "9194032@qq.com"
     }
   ],
   "dependencies": {
     "clipboard": "^2.0.4",
-    "vue": "^2.6.9"
+    "vue": "^3.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
